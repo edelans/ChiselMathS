@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <meta name="format-detection" content="telephone=no" />
+        
+        
+        <script type="text/javascript" src="js/quo.js"></script>
+        <script type="text/javascript" src="js/swipe.js"></script>
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/jsxgraph.js"></script>
+        <script type="text/javascript"src="js/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}}); </script>
+        <script type="text/javascript" src="js/cordova-2.2.0.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">app.initialize();</script>
+        
+        
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/jsxgraph.css" />
+        
+        <title>Hello World</title>
+        
+        
+    </head>
+    <body>
+        <div class="app">
+            <div id="toc"> </div>
+
+            
+            <div id="navbar">
+                <a href="index.html"><i class="icon-home icon-large"></i> Home</a><a href="exos.html"><i class="icon-pencil icon-large"></i> Exos</a><a href="#"><i class="icon-cogs icon-large"></i> Redac</a><a href="#"><i class="icon-dashboard icon-large"></i> Fiche</a>
+            </div>
+            
+            
+            
+            <h1>Cours 0.0.1</h1>
+
+            <div class="section" id="1"> 1 Introduction </div>
+            <div class="subsection">1.1 Un première vue. </div>
+            Soit \(f \) une fonction déﬁnie et dérivable sur \( \mathbb R \),vériﬁant \(f(0) = 1\) et pour tout \(x \in \mathbb R : f′(x) = f(x). \)
+            
+            <p>1. Calculer une valeur approchée de \(f(−2), \; f(−1), \; f(1), \; f(2), \; f(3), \; f(4). \)</p>
+            
+            
+            
+            
+            <p class="pincher">
+            On va alors construire une approximation de la courbe représentative de f sur l’intervalle [−3; 3] .
+            Pour cela on va utiliser la méthode d’Euler.
+            Pour cela on fait faire les mêmes calculs à un tableur, ici Excel, pour obtenir les courbes suivantes : Tout d’abord la feuille de calcul sous excel, puis la représentation graphique :
+            
+            </p>
+            <div class="pinched">
+                <div class='swipe'>
+                    <ul>
+                        <li style='display:block'><div>
+                            On va alors construire une approximation de la courbe représentative de $f$ sur l’intervalle [−3; 3] .
+                        </div></li>
+                        <li style='display:none'><div>
+                            Pour cela on va utiliser la méthode d’Euler.</div></li>
+                        <li style='display:none'><div>
+                            Pour cela on fait faire les mêmes calculs à un tableur, ici Excel, pour obtenir les courbes suivantes :</div></li>
+                        <li style='display:none'><div>Tout d’abord la feuille de calcul sous excel, puis la représentation graphique :</div></li>
+                        <li style='display:none'><div>5
+                        </div></li>
+                    </ul>
+                </div>
+            </div>            
+            
+
+    
+    <table class="excel" border="">
+        <tr>
+            <th>$x$</th>
+            <th>$\tiny f(x-h)=f(x)\times (1-h)$</th>
+            <th>$x$</th>
+            <th>$\tiny f(x+h)=f(x)\times (1+h)$</th>
+        </tr>
+        
+        <tr>
+            <td>0</td>
+            <td>1</td>
+            <td>0</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>-0,5</td>
+            <td>0,5</td>
+            <td>0,5</td>
+            <td>1,5</td>
+        </tr>
+        <tr>
+            <td>-1</td>
+            <td>0,25</td>
+            <td>1</td>
+            <td>2,25</td>
+        </tr>
+        <tr>
+            <td>-1,5</td>
+            <td>0,125</td>
+            <td>1,5</td>
+            <td>3,375</td>
+        </tr>
+        <tr>
+            <td>-2</td>
+            <td>0,0625</td>
+            <td>2</td>
+            <td>5,0625</td>
+        </tr>
+        <tr>
+            <td>-2,5</td>
+            <td>0,03125</td>
+            <td>2,5</td>
+            <td>7,59375</td>
+        </tr>
+        <tr>
+            <td>-3</td>
+            <td>0,015625</td>
+            <td>3</td>
+            <td>11,390625</td>
+        </tr>
+        
+        
+    </table>
+    
+    <br>
+    <br>
+            <div id="box" class="jxgbox" style="height:300px;"></div>
+            <script type="text/javascript">
+                board1 = JXG.JSXGraph.initBoard('box', {boundingbox: [-6, 25, 6, -15], axis: true});
+                board1.suspendUpdate();
+                
+                board1.create('functiongraph',
+                              [function(t){ return Math.exp(t); },-10, 10],
+                              {strokeColor: "#cccccc"});
+                
+                var s = board1.create('slider', [[-5,-4],[-2,-4],[0,0,15]], {name:'S',snapWidth:1});
+                board1.create('text',[-4,10, function() {
+                                      return '<span class="it"> n </span> = '+s.Value();
+                                      }
+                                      ]);
+                board1.create('text',[-4,8, function() {
+                                      var val = 0, i, sv = s.Value()+1;
+                                      for(i = 0; i < sv; i++) {
+                                      val+= 1.0/board1.factorial(i);
+                                      }
+                                      return '<span class="it"> e </span> = '+board1.round(val,10);
+                                      }
+                                      ]);
+                
+                board1.create('functiongraph', [
+                                                function(t) {
+                                                var val = 0, i, sv = s.Value()+1;
+                                                for(i = 0; i < sv; i++) {
+                                                val+= Math.pow(t,i)/board1.factorial(i);
+                                                }
+                                                return val;
+                                                },
+                                                -10, 10], {strokeColor: "#bb0000", curveType:'plot'});
+                board1.unsuspendUpdate();
+                </script>
+
+    
+    <div class="subsection">1.2 Une seconde : un processus « sans mémoire » </div>
+    On dit que la durée de vie de certains composants électroniques est sans vieillissement (ou encore sans mémoire) au sens suivant : Si $ f(t) $ est la probabilité que la durée de vie dépasse la durée t, alors pour tous  $t$ et $t′$ on a :
+    $$ f(t + t′) = f(t) × f(t′) $$ Tout cela sera bien expliqué au chapitre probabilité.
+    
+    Dans la suite on considère donc une fonction $ f $ dérivable sur $ \mathbb R $, non nulle, vérifiant pour tous $ x $ et $ y $:
+    $$ f(x + y) = f(x) × f(y) $$
+
+    
+    <div class="section" id="2"> 2 Définition de la fonction exponentielle </div>
+    
+    <div class="cadre">
+        <div class="caps"> Définition </div>
+        Il existe une unique fonction $f$, dérivable sur $\mathbb R$, telle que $f(0) = 1$ et $f′ = f$. On la nomme fonction exponentielle et sera notée $\exp$.
+        C’est à dire que pour tout $x$ de $\mathbb R$, $f(x) = \exp(x)$.
+    </div>
+    
+    Tout a été démontré sauf, l’existence.
+    Conséquences immédiates
+    
+    <div class="cadre">
+        <div class="caps"> Propriétés </div>
+        <ol>
+            <li>$\exp(0) = 1$</li>
+            <li>La fonction $\exp$ est dérivable sur $\mathbb R$, et $\forall x \in \mathbb R$ , $\exp′(x) = exp(x)$.</li>
+            <li>Son signe : $\forall x \in \mathbb R$, $\exp(x) > 0$.</li>
+            <li>Son sens de variation : la fonction exponentielle $\exp$ est strictement croissante sur $\mathbb R$.</li>
+            
+    </div>
+    
+    <div class="section" id="3" > 3 Propriétés algébriques</div>
+    
+    <div class="cadre">
+        <div class="caps"> Définition </div>
+        La fonction exponentielle transforme les sommes en produits :
+        Pour tout $a$ et $b$ de $\mathbb R$ : $\exp(a+b) = \exp(a) \times \exp(b)$. C’est à dire que pour tout $x$ de $\mathbb R$, $f(x) = exp(x)$.
+    </div>
+    
+    
+    
+    <div class="section" id="4"> 4 Propriétés asymptotiques</div>
+    
+    <div class="cadre">
+        <div class="caps">Définition</div>
+        $$ \displaystyle{\lim_{x\rightarrow + \infty}} e^x = + \infty
+        \quad \quad 
+        \displaystyle{\lim_{x\rightarrow - \infty}} e^x = 0
+        \quad \quad 
+        \displaystyle{\lim_{x\rightarrow + \infty}} \frac{e^x}{x} = + \infty $$
+        
+    </div>
+    
+    Preuve :
+    <br>
+    Pour le premier point on prouve que pour tout $x$ de $\mathbb R$ : $e^x \geqslant x$.
+    <br>
+    Le second provient du premier en changeant $x$ en $−x$.
+    Le dernier est plus astucieux : pour $x > 0$ $e^{\frac{x}{2}} \geqslant \displaystyle \frac{x}{2}$, on élève au carré :
+    $$ \left[ e^{\frac{x}{2}} \right]^2 \geqslant \frac{x^2}{4}$$
+    
+    Alors le tour est joué car $ \displaystyle \frac{e^x}{x} \geqslant \displaystyle \frac{x}{4} $.
+    <br>
+    En exercice, de la même manière, on peut montrer que $\displaystyle \lim_{x \rightarrow + \infty} \frac{e^x}{x^n} = +\infty$ pour tout $n \in \mathbb N^∗$. Cela signifie que la fonction exponentielle croît beaucoup plus vite que les polynômes vers l’infini en $+\infty$.
+    Remarques : La courbe représentative de la fonction exponentielle admet l’axe des abscisses comme asymptote au voisinage de $−\infty$. Elle admet en $+\infty$ une branche parabolique de direction $Oy$.
+    On a en synthèse le tableau de variations suivant :
+    
+    <div style="display: inline ; margin-left :20%">
+        <br>
+        <br>
+        <table class="var" style="margin:auto">
+            
+            <tr>
+                <th>$x$</th>
+                <th>$ - \infty \hspace{4cm} + \infty$</th>
+            </tr>
+            
+            <tr>
+                <td>$\exp (x)$</td>
+                
+                <td> <div style="margin-left : 180px">$ + \infty$ </div>
+                    <div class="fleche">$ \xrightarrow{\hspace{4cm}} $</div>
+                    0</td>
+                
+            </tr>
+            
+            
+        </table>
+        </div>
+        
+        
+            <iframe class="graphtk" src="graph.html#e^x">
+                </iframe>
+            <i class="icon-refresh icon-large"></i>
+            
+        
+        
+        
+        <div class="section" id="5"> 5 Dérivation </div>
+        
+        Démontrer que l’approximation affine de la fonction $\exp$ en $0$ est :
+        $$ \exp(x) \approx 1 + x$$
+        
+        <div class="cadre">
+            <div class="caps"> Propriété</div>
+            Soit $u$ une fonction dérivable sur un intervalle $I$.<br>
+            La fonction composée $e^u$ est alors dérivable sur $I$ et :
+            
+            $$(e^u)'=u'\times e^u$$
+            Ou encore $\forall x \in I, (e^u)'(x)=u'(x)\times e^{u(x)}.$
+            
+            
+        </div>
+        
+        
+        
+        <div class="section" id="6"> 6 Compléments </div>
+        <div class="subsection"> 6.1 Sur la croissance </div>
+        
+        Propriétés
+        Pour tous nombres réels $x$ et $y$ :
+        
+        $$ e^x = e^y \iff x=y$$
+        $$e^x \leqslant e^y \iff x \leqslant y$$
+        $$e^x < e^y \iff x < y $$
+            
+            
+            
+            <div class="subsection"> 6.2 Courbes de Gauss </div>
+    Étudier sur $\mathbb R$, et représenter graphiquement la fonction :
+    $f_k : x \rightarrow e^{−kx^2} \quad (k>0).$
+    On fera les représentations graphiques pour $k \in {0, 5 ; 1 ; 2 ; 3}$.
+    
+    <p>
+        <iframe style="border : none; width : 44%; height : 200px" src="graph.html#e^(-x^2)"></iframe>
+        <iframe style="border : none; width : 44%; height : 200px" src="graph.html#e^(-0.5x^2)"></iframe>
+        <table style="width : 88%; text-align : center;">
+            <tr>
+                <th>$k=1$</th>
+                <th>$\displaystyle k=\frac{1}{2}$</th>
+            </tr>
+            
+        </table>
+        <iframe style="border : none; width : 44%; height : 200px" src="graph.html#e^(-2x^2)"></iframe>
+        <iframe style="border : none; width : 44%; height : 200px" src="graph.html#e^(-3x^2)"></iframe>
+    <table style="width : 88%; text-align : center;">
+        <tr>
+            <th>$k=2$</th>
+            <th>$k=3$</th>
+        </tr>
+        
+    </table>
+    
+    
+    </p>
+    
+    <div class="subsection"> 6.3 Croissances comparées </div>
+    La fonction exponentielle n’est pas un polynôme (sa dérivée est égale à elle même, ce qui n’existe que pour le polynôme nul).
+    
+    
+    
+    On sait que $ \displaystyle \lim_{x \rightarrow + \infty} e^x= + \infty $ et $ \displaystyle \lim_{x \rightarrow + \infty}   x^n = + \infty $ si $n \geqslant 1$, mais entre ces deux fonctions, y-en a-t-il une qui croît beaucoup plus que l’autre ? C’est ce que l’on va chercher :
+    On cherche à comparer les croissances de la fonction $\exp$ et des fonctions polynômes lorsqu’on rencontre une forme indéterminée.
+    <p>
+    • en $ + \infty$ : 
+    
+    $$\lim_{x \rightarrow + \infty} \frac{x^n}{e^x}=0 \quad \text{et} \quad \lim_{x\rightarrow + \infty} \frac{e^x}{x^n}=+ \infty$$
+    </p>
+    <p>
+    • en $−\infty$ :
+    
+    $$\lim_{x\rightarrow - \infty } x^n e^x=0 $$
+    
+    </p>
+
+        </div>
+        
+        
+    </body>
+</html>

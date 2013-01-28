@@ -1,0 +1,411 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+    font-family : 'LM'; 
+}
+
+
+@font-face {
+    font-family: 'LM';
+    src: url('fonts/lmroman10-regular-webfont.eot');
+    src: url('fonts/lmroman10-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/lmroman10-regular-webfont.woff') format('woff'),
+         url('fonts/lmroman10-regular-webfont.ttf') format('truetype'),
+         url('fonts/lmroman10-regular-webfont.svg#lm_roman_10regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'LMC';
+    src: url('fonts/lmromancaps10-regular-webfont.eot');
+    src: url('fonts/lmromancaps10-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/lmromancaps10-regular-webfont.woff') format('woff'),
+         url('fonts/lmromancaps10-regular-webfont.ttf') format('truetype'),
+         url('fonts/lmromancaps10-regular-webfont.svg#lm_roman_caps_10regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+@font-face {
+    font-family: 'LMI';
+    src: url('fonts/lmroman10-italic-webfont.eot');
+    src: url('fonts/lmroman10-italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/lmroman10-italic-webfont.woff') format('woff'),
+         url('fonts/lmroman10-italic-webfont.ttf') format('truetype'),
+         url('fonts/lmroman10-italic-webfont.svg#lm_roman_10italic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+body {
+    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+    background-attachment:fixed;
+    font-family:'Latin Modern Roman';
+    font-size:12px;
+    height:100%;
+background: -moz-linear-gradient(left,  rgba(234,234,234,1) 0%, rgba(243,243,243,0) 8%, rgba(245,245,245,0) 10%, rgba(255,255,255,0) 19%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(234,234,234,1)), color-stop(8%,rgba(243,243,243,0)), color-stop(10%,rgba(245,245,245,0)), color-stop(19%,rgba(255,255,255,0))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(left,  rgba(234,234,234,1) 0%,rgba(243,243,243,0) 8%,rgba(245,245,245,0) 10%,rgba(255,255,255,0) 19%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(left,  rgba(234,234,234,1) 0%,rgba(243,243,243,0) 8%,rgba(245,245,245,0) 10%,rgba(255,255,255,0) 19%); /* Opera 11.10+ */
+background: -ms-linear-gradient(left,  rgba(234,234,234,1) 0%,rgba(243,243,243,0) 8%,rgba(245,245,245,0) 10%,rgba(255,255,255,0) 19%); /* IE10+ */
+background: linear-gradient(to right,  rgba(234,234,234,1) 0%,rgba(243,243,243,0) 8%,rgba(245,245,245,0) 10%,rgba(255,255,255,0) 19%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eaeaea', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 */
+background-color : #FFFFFA;
+padding : 30px 0;
+}
+
+
+/* Portrait layout (default) */
+
+
+/* Landscape layout (with min-width) */
+@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
+    .app {
+        background-position:left center;
+        padding:75px 0px 75px 170px;  /* padding-top + padding-bottom + text area = image height */
+        margin:-90px 0px 0px -198px;  /* offset vertical: half of image height */
+                                      /* offset horizontal: half of image width and text area width */
+    }
+}
+
+h1 {
+    font-size:30pt;
+    font-weight:normal;
+    margin:10px 0px;
+    overflow:visible;
+    padding:0px;
+    text-align:center;
+    font-family:'LM';
+}
+
+
+.event {
+    border-radius:4px;
+    -webkit-border-radius:4px;
+    color:#FFFFFF;
+    font-size:12px;
+    margin:0px 30px;
+    padding:2px 0px;
+}
+
+.event.listening {
+    background-color:#333333;
+    display:block;
+}
+
+.event.received {
+    background-color:#4B946A;
+    display:none;
+}
+
+@keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+@-webkit-keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+.blink {
+    animation:fade 3000ms infinite;
+    -webkit-animation:fade 3000ms infinite;
+}
+
+
+.section{
+font-size : 17pt;
+margin-top : 20px;
+}
+
+.subsection{
+font-size : 15pt;
+margin-top : 10px;
+}
+
+
+#jxbox.jxbox{
+border-radius : 0px !important;
+-webkit-border-radius : 0px !important;
+}
+
+table.excel{
+border : 1px solid;
+border-collapse : collapse;
+text-align : right;
+font-family : Courrier New
+}
+
+td{
+padding : 5px;
+}
+
+th{
+font-size : 10pt;
+padding-left : 10px;
+}
+
+.fleche{
+transform:rotate(345deg);
+-webkit-transform:rotate(345deg); /* Safari and Chrome */
+width : 30px;
+margin : 20px 10px -10px 15px;
+}
+
+table.var{
+border-collapse : collapse;
+}
+
+
+table.var tr th:nth-child(2), table.var tr td:nth-child(2){
+border-left : solid 1px black;}
+
+table.var tr th{
+border-bottom : solid 1px black;
+}
+
+.subsection-a{
+margin-left : 5%;
+font-size : 10pt;
+}
+
+.cadre{
+border : 1px solid;
+padding : 10px;
+}
+
+.caps{
+font-family : 'LMC';
+font-size : 12pt;
+}
+
+
+.swipe {
+  padding:20px;
+  position:relative;
+  z-index:1;
+  -webkit-perspective: 1000;
+  -webkit-backface-visibility: hidden;
+  background:#1db1ff;
+  color:#fff;
+  width : 280px;
+}
+
+ ul{
+padding : 0;
+margin-left : -13px;
+}
+
+
+.pinched{
+height : 0px;
+overflow : hidden;
+transition: all 1s;
+-moz-transition: all 1s; /* Firefox 4 */
+-webkit-transition: all  1s; /* Safari and Chrome */
+-o-transition: all 1s; /* Opera */
+margin : 0 0 10px -8px;
+width : 320px;
+}
+
+.pinched.pinched-active{
+height : 86px;
+transition: all 1s;
+-moz-transition: all 1s; /* Firefox 4 */
+-webkit-transition: all 1s; /* Safari and Chrome */
+-o-transition: all 1s; /* Opera */
+}
+
+.triangle-up {
+	width: 0;
+	height: 0;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-bottom: 10px solid #1db1ff;
+    margin : 0 auto;
+}
+
+.bullet-active{
+color : black
+}
+
+.slider-nav{
+text-align: center;
+}
+
+#navbar a{
+font-size : 12pt;
+text-decoration : none;
+margin : 0px;
+padding: 8px 7px;
+color : #1db1ff;
+}
+
+#navbar a:hover{
+background-color : #6bcbff !important;
+color : #00527f !important;
+}
+
+
+#navbar a:first-child{
+background-color : #b7e6ff;
+color : #009ef4;
+}
+
+#navbar a:nth-child(2), #navbar a:nth-child(3){
+border-right : 1px solid #f2f2f2;
+}
+
+
+#navbar{
+position : fixed;
+border-bottom : 1px solid black;
+width : 320px;
+margin :-50px 0 0 -8px;
+padding : 8px 0;
+z-index: 3000;
+
+
+background: -moz-linear-gradient(left,  rgba(234,234,234,1) 0%, rgba(243,243,243,0) 8%, rgba(245,245,245,0) 10%, rgba(255,255,255,0) 19%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(234,234,234,1)), color-stop(8%,rgba(243,243,243,0)), color-stop(10%,rgba(245,245,245,0)), color-stop(19%,rgba(255,255,255,0))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(left,  rgba(234,234,234,1) 0%,rgba(243,243,243,0) 8%,rgba(245,245,245,0) 10%,rgba(255,255,255,0) 19%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(left,  rgba(234,234,234,1) 0%,rgba(243,243,243,0) 8%,rgba(245,245,245,0) 10%,rgba(255,255,255,0) 19%); /* Opera 11.10+ */
+background: -ms-linear-gradient(left,  rgba(234,234,234,1) 0%,rgba(243,243,243,0) 8%,rgba(245,245,245,0) 10%,rgba(255,255,255,0) 19%); /* IE10+ */
+background: linear-gradient(to right,  rgba(234,234,234,1) 0%,rgba(243,243,243,0) 8%,rgba(245,245,245,0) 10%,rgba(255,255,255,0) 19%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eaeaea', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 */
+background-color : #FFFFFA;
+}
+
+.it{
+font-family : LMI
+}
+
+.btn {
+display: inline-block;
+padding: 4px 12px;
+margin-bottom: 0;
+font-size: 14px;
+line-height: 20px;
+text-align: center;
+vertical-align: middle;
+cursor: pointer;
+color: #333;
+text-shadow: 0 1px 1px rgba(255,255,255,0.75);
+background-color: #f5f5f5;
+background-image: -moz-linear-gradient(top,#fff,#e6e6e6);
+background-image: -webkit-gradient(linear,0 0,0 100%,from(#fff),to(#e6e6e6));
+background-image: -webkit-linear-gradient(top,#fff,#e6e6e6);
+background-image: -o-linear-gradient(top,#fff,#e6e6e6);
+background-image: linear-gradient(to bottom,#fff,#e6e6e6);
+background-repeat: repeat-x;
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff',endColorstr='#ffe6e6e6',GradientType=0);
+border-color: #e6e6e6 #e6e6e6 #bfbfbf;
+border-color: rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25);
+filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+border: 1px solid #bbb;
+border-bottom-color: #a2a2a2;
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+border-radius: 4px;
+-webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.2),0 1px 2px rgba(0,0,0,.05);
+-moz-box-shadow: inset 0 1px 0 rgba(255,255,255,.2),0 1px 2px rgba(0,0,0,.05);
+box-shadow: inset 0 1px 0 rgba(255,255,255,.2),0 1px 2px rgba(0,0,0,.05);
+text-decoration : none;
+}
+
+.btn-large {
+padding: 11px 19px;
+font-size: 17.5px;
+-webkit-border-radius: 6px;
+-moz-border-radius: 6px;
+border-radius: 6px;
+}
+
+
+.chapActu a{
+font-size : 15pt;
+text-decoration : none;
+color : #0085cd;
+display : inline;
+}
+
+.chapActu a div{
+display : inline-block;
+width : 50%;
+text-align : center;
+padding : 10px 0px;
+background : #6bcbff;
+}
+
+.chapActu{
+margin : -5px 0 0 -9px;
+width : 321px;
+}
+
+.chapActu i{
+color : #b9e7ff;}
+
+.chapActu a div:hover{
+background-color : #1fb0ff !important;
+color : #005686 !important;
+}
+
+.chapActu .acours, .chapActu .aexos{
+border-bottom : 1px solid #9eddff;
+}
+.chapActu .acours, .chapActu .aredac{
+border-right : 1px solid #9eddff;
+}
+
+div.number{
+border : 4px solid #ab0019;
+border-radius : 10px;
+width : 30px;
+min-height : 30px;
+text-align : center;
+font-size : 14pt;
+color : #350008;
+display : inline-block;
+margin : auto
+}
+
+.exosCalcul{
+width : 320px;
+margin-left : -8px;
+padding-left : 8px;
+border-bottom : 1px dashed;
+border-top : 1px dashed;
+background : #ffe6e9;
+}
+
+iframe{
+border : 0 none;
+
+}
