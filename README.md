@@ -23,7 +23,7 @@ For the pinch-to-reveal function :
                 </div>
             </div>
 
-For the graph.tk iframe, insert your function after the # :
+For the graph.tk iframe, insert your function after the #, just like in the graph.tk website :
 
             <iframe class="graphtk" src="graph.html#e^x"> </iframe>
             
