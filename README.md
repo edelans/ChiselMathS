@@ -5,7 +5,7 @@ a PhoneGap based framework to create math class book apps
 
 Needs some cleaning up...
 
-The framework uses : PhoneGap, jQuery, Graph.tk, Quo.js, SwipeJS, Font-Awesome, MathJax, JSXGraph, Simple-Grid (for now)
+The framework uses : PhoneGap, jQuery, Graph.tk, Quo.js, SwipeJS, Font-Awesome, MathJax, JSXGraph, Simple-Grid, LESS (for now)
 
 Beginning of the API : 
 
@@ -40,3 +40,6 @@ TODO pour les français :
 
 - Nettoyer le tableu de variations, et le rendre facile à coder.
 - Ajouter le moteur d'Algobox, pour faire tourner les algorithmes en JS
+
+A few demos : 
+http://db.tt/mpEfJMaw
