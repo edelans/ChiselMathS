@@ -5,7 +5,7 @@ a PhoneGap based framework to create math class book apps
 
 Needs some cleaning up...
 
-The framework uses : PhoneGap, jQuery, Graph.tk, Quo.js, SwipeJS, Font-Awesome, MathJax, JSXGraph, Simple-Grid, LESS (for now)
+The framework uses : PhoneGap, jQuery, Graph.tk, Quo.js, SwipeJS, Font-Awesome, MathJax, JSXGraph, tuktuk, LESS (for now)
 
 Beginning of the API : 
 
