@@ -11,6 +11,7 @@ Beginning of the API :
 
 For the pinch-to-reveal function : 
 <p class="pincher"></p>
+            <div class="pincher"></div>
             <div class="pinched">
                 <div class='swipe'>
                     <ul>
