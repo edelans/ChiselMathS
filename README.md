@@ -24,6 +24,7 @@ For the pinch-to-reveal function :
                 </div>
             </div>
 
+Putting an "exo" class to the div.pincher will make it red, and will add a little pencil icon.
 For the graph.tk iframe, insert your function after the #, just like in the graph.tk website :
 
             <iframe class="graphtk" src="graph.html#e^x"> </iframe>
