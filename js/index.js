@@ -50,15 +50,21 @@ var app = {
 
 
 $(document).ready(function() {
-                  
+                  // Pinch-to-reveal
                   $('.pincher').each(function() {
+                                     $(this).append('<i class="icon-pincher"></i>');
                                      $(this).on("pinchOut", function(){
                                                 $(this).next('.pinched').addClass('pinched-active');})
                                      $(this).on("doubleTap", function(){
                                                 $(this).next('.pinched').toggleClass('pinched-active');})
                                      $(this).on("pinchIn", function(){
                                                 $(this).next('.pinched').removeClass('pinched-active');})
+                                     $(this).children('i').on("tap", function(){
+                                                               $(this).next('.pinched').addClass('pinched-active');})
+
                                      });
+                  // Slider
+                  
                   $('.swipe').each(function() {
                                    var slider = this;
                                    var count = $(this).children('ul').children().length;
@@ -79,13 +85,70 @@ $(document).ready(function() {
                                                               slider_nav.find('.bullet[data-target=' + index + ']').addClass('bullet-active');}
                                                               });
                                    });
+                  
+                  
+                  // Resize and refresh buttons, Boutons de rafraîchissement et de redimmension
+                  $('iframe.graphtk').each(function(){
+                                           $(this).next('div').children('i.icon-resize-full, i.icon-resize-small').on("tap", function(){
+                                                            $(this).parent().prev('iframe.graphtk').toggleClass('graphtk-large');
+                                                            $(this).toggleClass('icon-resize-full');
+                                                            $(this).toggleClass('icon-resize-small');})
+                                           $(this).next('div').children('i.icon-refresh').on("tap", function(){
+                                                                                             $(this).parent().prev('iframe.graphtk');})
+                                           }); 
+
+                  // TOC generator and headlines numerator, Générateur de sommaire et numérotation des titres
+                  i = 1;
+                  if($('#toc').length){
+                  $('h2').each(function(){
+                               j=1;
+                               var id = 'h2-' + i;
+                               $(this).prepend(i + '  ');
+                               $(this).attr( "id", id );
+                               $('#toc').append('<a href=#' + id + '>' + $(this).text() + '</a><br>');
+                               $(this).nextUntil('h2' , 'h3').each(function(){
+                                                           $(this).prepend(i + '.' + j + '  ');
+                                                           $(this).attr( "id",'h3-' + i + '-' + j);
+                                                           j++;});
+                               i++;                               
+                               });};
+                  
+                  // Smooth Scroll, Défilement progressif
+                  $("#toc a").click(function(event){
+                                      event.preventDefault();
+                                    $('html,body').animate({scrollTop:$(this.hash).offset().top-40}, 500);
+                                    });
+                  
+                  //Home chapters handler
+                  
+                  $('.current-chapter').each(function(){
+                                            var folder = $(this).attr('ref');
+                                             $(this).append('<a href="content/' + folder + '/cours.html" ><div><i class="icon-lightbulb icon-2x"></i>  Cours</div></a>');
+                                             $(this).append('<a href="content/' + folder + '/exos.html" ><div><i class="icon-pencil icon-2x"></i>  Exos</div></a>');
+                                             $(this).append('<a href="content/' + folder + '/redac.html" ><div><i class="icon-cogs icon-2x"></i>  Redac</div></a>');
+                                             $(this).append('<a href="content/' + folder + '/fiche.html" ><div><i class="icon-dashboard icon-2x"></i>  Fiche</div></a>');                                             
+                                             });
+                  
+                  $('.prev-chapters').nextAll('h3').each(function(){
+                                                        var folder = $(this).attr('ref');
+                                                        $(this).after('<div class="prev-chapter-div"></div>');
+                                                        var div = $(this).next('div');
+                                                        div.append('<a href="content/' + folder + '/cours.html" ><i class="icon-lightbulb icon-3x"></i></a>');
+                                                        div.append('<a href="content/' + folder + '/exos.html"  ><i class="icon-pencil icon-3x"></i></a>');
+                                                        div.append('<a href="content/' + folder + '/redac.html" ><i class="icon-cogs icon-3x"></i></a>');
+                                                        div.append('<a href="content/' + folder + '/fiche.html" ><i class="icon-dashboard icon-3x"></i></a>');
+                                                        });
+                //fiche
+                  var k=0;
+                  $('#navbar a i.icon-dashboard').parent('a').on("tap", function(){
+                                                                 k++;
+                                                                 if(k%2==1){
+                                                                 $('#quick-look').load('fiche.html #fiche-div',  function ()
+                                                                                       {MathJax.Hub.Queue(["Typeset",MathJax.Hub,"quick-look"])});
+                                                                 $('#quick-look').slidedown("slow");}
+                                                                 else{$('#quick-look').empty();}
+                                                                 });
+                  
+                  //                                                                 $(this).parent('#navbar').next('h1').after('<div id="quick-look"></div>');
+                  
                   });
-
-$('iframe.graphtk').each(function(){
-                         
-                         $(this).next('i').on("tap", function(){
-                                              $(this).addClass('graphtk-large');})};
-
-
-
-

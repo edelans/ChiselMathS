@@ -3446,13 +3446,23 @@ app.ui=(function(){
     },"init":function(fullscreen){
     (new Image()).src="grabbing.gif";
     canvas=document.createElement("canvas");
-    if(fullscreen){
+        
+        if(fullscreen){
+        
+        
+        
       canvas.width=window.innerWidth;
       canvas.height=window.innerHeight;
+
     }
     document.body.appendChild(canvas);
     if(canvas.getContext){
-      ctx=canvas.getContext("2d");
+        
+        ctx=canvas.getContext("2d");
+        
+        
+        
+        
     }else{
       if(!ctx && G_vmlCanvasManager){
                 //Explorer canvas. Currently doesn't work because
@@ -3472,7 +3482,7 @@ app.ui=(function(){
     if(!app.config.fillText){
             app.config.fillText=ctx.fillText?true:false;
         }
-    canvas.style.background="white";
+        canvas.style.background="#FFFFFA";
     canvas.style.cursor = "default";
     canvas.style.position="fixed";
     
