@@ -34,7 +34,7 @@ For MathJax, use the $ just like in LaTeX.
 For the headlines, just use the h2, h3 and h4 tags, which will appear just like \section, \subsection and \subsubsection in LaTeX.
 Putting a
 
-            <div id="toc"></div>
+                        <div id="toc"></div>
             
 after the title will output a table of content.
 
