@@ -73,8 +73,8 @@ On peut rajouter une classe ’exo’ au ’pincher’ pour signaler un petit ex
 
 Pour les titres, on peut utiliser les balises h2,h3 et h4 qui sont numérotées et indexées si on laisse une balise
 
-<div id="toc"></div>
-
+                        <div id="toc"></div>
+            
 après le titre h1. 
 
 Pour rajouter un graphique graph.tk, on rajoute un simple iframe, avec la fonction après le # :
