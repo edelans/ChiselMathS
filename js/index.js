@@ -89,6 +89,7 @@ $(document).ready(function() {
                   
                   // Resize and refresh buttons, Boutons de rafraîchissement et de redimmension
                   $('iframe.graphtk').each(function(){
+                                           $(this).after('<div class="graph-icons"><i class="icon-resize-full icon-large"></i><i class="icon-refresh icon-large"></i></div>');
                                            $(this).next('div').children('i.icon-resize-full, i.icon-resize-small').on("tap", function(){
                                                             $(this).parent().prev('iframe.graphtk').toggleClass('graphtk-large');
                                                             $(this).toggleClass('icon-resize-full');
@@ -106,9 +107,11 @@ $(document).ready(function() {
                                $(this).prepend(i + '  ');
                                $(this).attr( "id", id );
                                $('#toc').append('<a href=#' + id + '>' + $(this).text() + '</a><br>');
-                               $(this).nextUntil('h2' , 'h3').each(function(){
+                               $(this).nextUntil('h2' , 'h3, div h3').each(function(){
                                                            $(this).prepend(i + '.' + j + '  ');
-                                                           $(this).attr( "id",'h3-' + i + '-' + j);
+                                                        var id2 = 'h3-' + i + '-' + j;
+                                                           $(this).attr( "id", id2);
+                                                           $('#toc').append('<a class="h3-links" href=#' + id2 + '>' + $(this).text() + '</a><br class="h3-links">');
                                                            j++;});
                                i++;                               
                                });};
@@ -131,6 +134,7 @@ $(document).ready(function() {
                   
                   $('.prev-chapters').nextAll('h3').each(function(){
                                                         var folder = $(this).attr('ref');
+                                                         $(this).wrap('<div class="column_4" />');
                                                         $(this).after('<div class="prev-chapter-div"></div>');
                                                         var div = $(this).next('div');
                                                         div.append('<a href="content/' + folder + '/cours.html" ><i class="icon-lightbulb icon-3x"></i></a>');
@@ -149,6 +153,35 @@ $(document).ready(function() {
                                                                  else{$('#quick-look').empty();}
                                                                  });
                   
-                  //                                                                 $(this).parent('#navbar').next('h1').after('<div id="quick-look"></div>');
+                  var l=0;
+                  $('.number').each(function(){
+                                    $(this).on("tap", function(){
+                                               l++;
+                                               if(l%2==1){
+                                               var number = $(this).text();
+                                               var id =  number + '-exo-frame';
+                                               $(this).parent('.row').after('<div class="exo-frame" id="' + id + '"></div>');
+                                               var div = $(this).parent('.row').next('.exo-frame');
+                                               div.load('exos/' + number +'.html',  function ()
+                                                                     {MathJax.Hub.Queue(["Typeset",MathJax.Hub, id])});
+                                               }
+                                               if(l%2!=1){
+                                               var div = $(this).parent('.row').next('.exo-frame');
+                                               div.remove();}
+                                               });
+                                             });
+                  
+                  var m =0
+                  $('.graph-side').each(function(){
+                                        if( $(this).parent('.right-container').prev('.left-container').length == 0){
+                                        $(this).parent('.right-container').before('<div class="left-container"></div>');}
+                                        
+                                        $(this).appendTo( $(this).parent('.right-container').prev('.left-container') );
+                                        
+                                        
+                                        });
+
+                  
+                  
                   
                   });
