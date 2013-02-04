@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Math Book App Framework : A PhoneGap Based Framework for math book apps" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Math Book App Framework</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/jeremypatrickdahan/MathBookAppFramework">View on GitHub</a>
+
+          <h1 id="project_title">Math Book App Framework</h1>
+          <h2 id="project_tagline">A PhoneGap Based Framework for math book apps</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/jeremypatrickdahan/MathBookAppFramework/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/jeremypatrickdahan/MathBookAppFramework/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>MathBookApp</h1>
+
+<h1></h1>
+
+<p>a PhoneGap based framework to create math class book apps</p>
+
+<p>Needs some cleaning up...</p>
+
+<p>The framework uses : PhoneGap, jQuery, Graph.tk, Quo.js, SwipeJS, Font-Awesome, MathJax, JSXGraph, tuktuk, LESS (for now)</p>
+
+<h2>Beginning of the API :</h2>
+
+<p>For the pinch-to-reveal function : </p>
+
+<p></p>
+
+<pre><code>        &lt;div class="pincher"&gt;&lt;/div&gt;
+        &lt;div class="pinched"&gt;
+            &lt;div class='swipe'&gt;
+                &lt;ul&gt;
+                    &lt;li style='display:block'&gt;&lt;div&gt; &lt;/div&gt;&lt;/li&gt;
+                    &lt;li style='display:none'&gt;&lt;div&gt; &lt;/div&gt;&lt;/li&gt;
+                    &lt;li style='display:none'&gt;&lt;div&gt; &lt;/div&gt;&lt;/li&gt;
+                    &lt;li style='display:none'&gt;&lt;div&gt; &lt;/div&gt;&lt;/li&gt;
+                    &lt;li style='display:none'&gt;&lt;div&gt; &lt;/div&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+</code></pre>
+
+<p>Putting an "exo" class to the div.pincher will make it red, and will add a little pencil icon.
+For the graph.tk iframe, insert your function after the #, just like in the graph.tk website :</p>
+
+<pre><code>        &lt;iframe class="graphtk" src="../../graph.html#e^x"&gt; &lt;/iframe&gt;
+</code></pre>
+
+<p>For MathJax, use the $ just like in LaTeX. </p>
+
+<p>For the headlines, just use the h2, h3 and h4 tags, which will appear just like \section, \subsection and \subsubsection in LaTeX.
+Putting a</p>
+
+<pre><code>                    &lt;div id="toc"&gt;&lt;/div&gt;
+</code></pre>
+
+<p>after the title will output a table of content.</p>
+
+<p>TODO :</p>
+
+<ul>
+<li>Adapt Khan-Exercices to pure JS</li>
+<li>CLEAN UP</li>
+<li>Try on Android</li>
+<li>Customize the CSS for the iPad</li>
+</ul><p>A few demos 
+<a href="http://db.tt/mpEfJMaw">http://db.tt/mpEfJMaw</a></p>
+
+<h1>Français</h1>
+
+<p>Cette structure permet la construction rapide d'un cours de math/physique avec exercices, sur toutes les plateformes dotées du support du HTML5. Elle emprunte l'esthétique TeX en y ajoutant des modules comme des graphiques interactifs graph.tk ou JSXGraph (compatibilité Geogebra).
+Quelques fonctions sont opérationnelles : </p>
+
+<p>La fonction pinch-to-reveal qui permet de révéler un élément en écartant des doigts un autre. Il suffit de placer une classe ’pincher’ de cette façon : </p>
+
+<p></p>
+
+<pre><code>        &lt;div class="pincher"&gt;&lt;/div&gt;
+        &lt;div class="pinched"&gt;
+            &lt;div class='swipe'&gt;
+                &lt;ul&gt;
+                    &lt;li style='display:block'&gt;&lt;div&gt; &lt;/div&gt;&lt;/li&gt;
+                    &lt;li style='display:none'&gt;&lt;div&gt; &lt;/div&gt;&lt;/li&gt;
+                    &lt;li style='display:none'&gt;&lt;div&gt; &lt;/div&gt;&lt;/li&gt;
+                    &lt;li style='display:none'&gt;&lt;div&gt; &lt;/div&gt;&lt;/li&gt;
+                    &lt;li style='display:none'&gt;&lt;div&gt; &lt;/div&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+</code></pre>
+
+<p>On peut rajouter une classe ’exo’ au ’pincher’ pour signaler un petit exercice de compréhension.</p>
+
+<p>Pour les titres, on peut utiliser les balises h2,h3 et h4 qui sont numérotées et indexées si on laisse une balise</p>
+
+<pre><code>                    &lt;div id="toc"&gt;&lt;/div&gt;
+</code></pre>
+
+<p>après le titre h1. </p>
+
+<p>Pour rajouter un graphique graph.tk, on rajoute un simple iframe, avec la fonction après le # :</p>
+
+<pre><code>                 &lt;iframe class="graphtk" src="../../graph.html#e^x"&gt; &lt;/iframe&gt;
+</code></pre>
+
+<p>Pour les maths, grâce à MathJax, on utilise le $, comme dans TeX.</p>
+
+<p>TODO : </p>
+
+<ul>
+<li>Il faut nettoyer et simplifier le code.</li>
+<li>Nettoyer le tableu de variations, et le rendre facile à coder.</li>
+<li>Ajouter le moteur d'Algobox, pour faire tourner les algorithmes en JS</li>
+</ul><p>Quelques démos :
+<a href="http://db.tt/mpEfJMaw">http://db.tt/mpEfJMaw</a></p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Math Book App Framework maintained by <a href="https://github.com/jeremypatrickdahan">jeremypatrickdahan</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
