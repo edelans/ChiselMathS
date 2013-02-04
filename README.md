@@ -79,7 +79,7 @@ après le titre h1.
 
 Pour rajouter un graphique graph.tk, on rajoute un simple iframe, avec la fonction après le # :
 
-<iframe class="graphtk" src="../../graph.html#e^x"> </iframe>
+                     <iframe class="graphtk" src="../../graph.html#e^x"> </iframe>
 
 Pour les maths, grâce à MathJax, on utilise le $, comme dans TeX.
 
