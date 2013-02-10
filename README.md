@@ -8,7 +8,7 @@ Needs some cleaning up...
 
 The framework uses : PhoneGap, jQuery, Graph.tk, Quo.js, SwipeJS, Font-Awesome, MathJax, JSXGraph, tuktuk, LESS (for now)
 
-Beginning of the API : 
+# Beginning of the API : 
 
 For the pinch-to-reveal function : 
 <p class="pincher"></p>
@@ -50,6 +50,7 @@ TODO :
 A few demos 
 http://db.tt/mpEfJMaw
 
+## En français
 
 Cette structure permet la construction rapide d'un cours de math/physique avec exercices, sur toutes les plateformes dotées du support du HTML5. Elle emprunte l'esthétique TeX en y ajoutant des modules comme des graphiques interactifs graph.tk ou JSXGraph (compatibilité Geogebra).
 Quelques fonctions sont opérationnelles : 
