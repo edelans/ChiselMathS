@@ -79,9 +79,9 @@ Pour les titres, on peut utiliser les balises h2,h3 et h4 qui sont numérotées 
             
 après le titre h1. 
 
-Pour rajouter un graphique graph.tk, on rajoute un simple iframe, avec la fonction après le # :
+Pour rajouter un graphique graph.tk, on rajoute un simple iframe, avec les fonctions après le #, séparées par un & :
 
-                     <iframe class="graphtk" src="../../graph.html#e^x"> </iframe>
+                     <iframe class="graphtk" src="../../graph.html#e^x&x^2"> </iframe>
 
 Pour les maths, grâce à MathJax, on utilise le $, comme dans TeX.
 
