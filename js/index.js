@@ -1,4 +1,4 @@
-/*
+    /*
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
  * distributed with this work for additional information
@@ -18,7 +18,7 @@
  */
 var app = {
     // Application Constructor
-    initialize: function() {
+    initialize: function () {
         this.bindEvents();
     },
     // Bind Event Listeners
@@ -54,23 +54,25 @@ $(document).ready(function() {
                   $('.pincher').each(function() {
                                      $(this).append('<i class="icon-pincher"></i>');
                                      $(this).on("pinchOut", function(){
-                                                $(this).next('.pinched').addClass('pinched-active');})
+                                                $(this).next('.pinched').addClass('pinched-active');});
                                      $(this).on("doubleTap", function(){
-                                                $(this).next('.pinched').toggleClass('pinched-active');})
+                                                $(this).next('.pinched').toggleClass('pinched-active');});
                                      $(this).on("pinchIn", function(){
-                                                $(this).next('.pinched').removeClass('pinched-active');})
+                                                $(this).next('.pinched').removeClass('pinched-active');});
+                                     $(this).on("click", function(){
+                                                $(this).next('.pinched-active').removeClass('pinched-active');});
                                      $(this).children('i').on("tap", function(){
-                                                               $(this).next('.pinched').addClass('pinched-active');})
-
+                                                $(this).parent('.pincher').next('.pinched').toggleClass('pinched-active');});
                                      });
+
                   // Slider
                   
-                  $('.swipe').each(function() {
+                var sliderFunction = function(){$('.swipe').each(function() {
                                    var slider = this;
                                    var count = $(this).children('ul').children().length;
-                                   $(this).before('<div class="triangle-up"></div>');
-                                   $(this).parent('.pinched').after('<div class="slider-nav"></div>');
-                                   var slider_nav = $(this).parent().next('.slider-nav');
+                                   if($(this).parent().hasClass('pinched')){$(this).before('<div class="triangle-up"></div>');};
+                                   $(this).after('<div class="slider-nav"></div>');
+                                   var slider_nav = $(this).next('.slider-nav');
                                    
                                    for (var i = 0; i < count; i++) {
                                    var bullet = $('<a class="bullet" data-target="' + i + '">•</a>');
@@ -84,19 +86,9 @@ $(document).ready(function() {
                                                               slider_nav.find('.bullet').removeClass('bullet-active');
                                                               slider_nav.find('.bullet[data-target=' + index + ']').addClass('bullet-active');}
                                                               });
-                                   });
+                                   });}
+                  sliderFunction();
                   
-                  
-                  // Resize and refresh buttons, Boutons de rafraîchissement et de redimmension
-                  $('iframe.graphtk').each(function(){
-                                           $(this).after('<div class="graph-icons"><i class="icon-resize-full icon-large"></i><i class="icon-refresh icon-large"></i></div>');
-                                           $(this).next('div').children('i.icon-resize-full, i.icon-resize-small').on("tap", function(){
-                                                            $(this).parent().prev('iframe.graphtk').toggleClass('graphtk-large');
-                                                            $(this).toggleClass('icon-resize-full');
-                                                            $(this).toggleClass('icon-resize-small');})
-                                           $(this).next('div').children('i.icon-refresh').on("tap", function(){
-                                                                                             $(this).parent().prev('iframe.graphtk');})
-                                           }); 
 
                   // TOC generator and headlines numerator, Générateur de sommaire et numérotation des titres
                   i = 1;
@@ -123,28 +115,48 @@ $(document).ready(function() {
                                     });
                   
                   //Home chapters handler
-                  
+                  var menu = new Array();
+                        menu[0] = "cours";
+                        menu[1] = "exos";
+                        menu[2] = "redac";
+                        menu[3] = "fiche";
+    
                   $('.current-chapter').each(function(){
                                             var folder = $(this).attr('ref');
-                                             $(this).append('<a href="content/' + folder + '/cours.html" ><div><i class="icon-lightbulb icon-2x"></i>  Cours</div></a>');
-                                             $(this).append('<a href="content/' + folder + '/exos.html" ><div><i class="icon-pencil icon-2x"></i>  Exos</div></a>');
-                                             $(this).append('<a href="content/' + folder + '/redac.html" ><div><i class="icon-cogs icon-2x"></i>  Redac</div></a>');
-                                             $(this).append('<a href="content/' + folder + '/fiche.html" ><div><i class="icon-dashboard icon-2x"></i>  Fiche</div></a>');                                             
-                                             });
+                                         for (var i=0;i<menu.length;i++){
+                                            var title = menu[i];
+                                            $(this).append('<a href="content/' + folder + '/' + title + '.html" ><div><i class="icon-' + title + ' icon-2x"></i> ' + title + '</div></a>');                                            
+                                            $(this).children('a').css('display','inline-block').css('display','inline');
+                                         };});
                   
                   $('.prev-chapters').nextAll('h3').each(function(){
                                                         var folder = $(this).attr('ref');
                                                          $(this).wrap('<div class="column_4" />');
                                                         $(this).after('<div class="prev-chapter-div"></div>');
                                                         var div = $(this).next('div');
-                                                        div.append('<a href="content/' + folder + '/cours.html" ><i class="icon-lightbulb icon-3x"></i></a>');
-                                                        div.append('<a href="content/' + folder + '/exos.html"  ><i class="icon-pencil icon-3x"></i></a>');
-                                                        div.append('<a href="content/' + folder + '/redac.html" ><i class="icon-cogs icon-3x"></i></a>');
-                                                        div.append('<a href="content/' + folder + '/fiche.html" ><i class="icon-dashboard icon-3x"></i></a>');
-                                                        });
-                //fiche
+                                                            for (var i=0;i<menu.length;i++){
+                                                                var title = menu[i];
+                                                                div.append('<a href="content/' + folder + '/' + title + '.html" ><i class="icon-' + title + ' icon-3x"></i></a>');                                            
+                                                            };});
+                //navbar
+                    if($('#navbar').length){
+                                $("#navbar").append('<a href="../../index.html"><i class="icon-home icon-large"></i> Home</a>');
+                            var sPath=window.location.pathname;
+                            var name = sPath.substring(sPath.lastIndexOf('/') + 1);
+                        for (var i=0;i<menu.length;i++){
+                                        var title = menu[i];
+                               if(name.search(title) == -1) {
+                                $("#navbar").append('<a href="' + title + '.html"><i class="icon-' + title + ' icon-large"></i> ' + title + '</a>');
+                               }
+                            }};
+                    
+    
+                //dashboard fiche
                   var k=0;
-                  $('#navbar a i.icon-dashboard').parent('a').on("tap", function(){
+    $('#navbar a i.icon-fiche').parent('a').click(function(event) {
+  event.preventDefault();});
+                  $('#navbar a i.icon-fiche').parent('a').on("tap", function(event){
+                                                                event.preventDefault();
                                                                  k++;
                                                                  if(k%2==1){
                                                                  $('#quick-look').load('fiche.html #fiche-div',  function ()
@@ -155,15 +167,18 @@ $(document).ready(function() {
                   
                   var l=0;
                   $('.number').each(function(){
-                                    $(this).on("tap", function(){
+                                    $(this).on("click", function(){
                                                l++;
                                                if(l%2==1){
                                                var number = $(this).text();
                                                var id =  number + '-exo-frame';
                                                $(this).parent('.row').after('<div class="exo-frame" id="' + id + '"></div>');
                                                var div = $(this).parent('.row').next('.exo-frame');
-                                               div.load('exos/' + number +'.html',  function ()
-                                                                     {MathJax.Hub.Queue(["Typeset",MathJax.Hub, id])});
+                                               div.load('exos/' + number +'.html',  function (){
+                                                   MathJax.Hub.Queue(["Typeset",MathJax.Hub, id]);
+                                                                      sliderFunction();
+                                               });
+                                                                   
                                                }
                                                if(l%2!=1){
                                                var div = $(this).parent('.row').next('.exo-frame');
@@ -171,17 +186,58 @@ $(document).ready(function() {
                                                });
                                              });
                   
-                  var m =0
-                  $('.graph-side').each(function(){
+    
+   var width = $(window).width(); 
+     if (width > 500) {
+    
+        $.fn.max = function(selector) { 
+        return Math.max.apply(null, this.map(function(index, el) { return selector.apply(el); }).get() ); 
+    }
+            $.fn.min = function(selector) { 
+    return Math.min.apply(null, this.map(function(index, el) { return selector.apply(el); }).get() );
+}
+        
+                        var m =0
+                   $('.graph-side').each(function(){
+                                var maxOffset = $(this).prevAll('h2,h3').max(function() {return $(this).offset().top; }); 
+                                var nextOffset = $(this).nextAll('h2,h3').min(function() {return $(this).offset().top; }); 
+                        
                                         if( $(this).parent('.right-container').prev('.left-container').length == 0){
                                         $(this).parent('.right-container').before('<div class="left-container"></div>');}
                                         
                                         $(this).appendTo( $(this).parent('.right-container').prev('.left-container') );
-                                        
-                                        
+                       
+                                        $(this).offset({top : maxOffset+40});
+                       
+                                        $(this).next('div').children('i.icon-resize-full').on("tap", function(){
+                                            $(this).parent().prev('iframe.graphtk').offset({top : nextOffset})
+                                            });
                                         });
+    
+                };
+                  
+                  // Resize and refresh buttons, Boutons de rafraîchissement et de redimmension
+                  $('iframe.graphtk').each(function(){
+                                           $(this).after('<div class="graph-icons"><i class="icon-resize-full icon-large"></i><i class="icon-refresh icon-large"></i></div>');
+                                           $(this).next('div').children('i.icon-resize-full, i.icon-resize-small').on("tap", function(){
+                                                            $(this).parent().prev('iframe.graphtk').toggleClass('graphtk-large');
+                                                            $(this).toggleClass('icon-resize-full');
+                                                            $(this).toggleClass('icon-resize-small');})
+                                           $(this).next('div').children('i.icon-refresh').on("tap", function(){
+                                                                                             $(this).parent().prev('iframe.graphtk').contentDocument.location.reload(true);})
+                                                            
+                                            var top = $(this).css('top');     
+                                                                  $(this).next('div').css('top', top).css('position' , 'relative');
 
                   
-                  
-                  
                   });
+                                
+    
+    
+                                    
+    
+                  });
+
+
+
+

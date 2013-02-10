@@ -27,10 +27,10 @@
         <meta name="format-detection" content="telephone=no" />
     
         
-        <script type="text/javascript" src="cordova-2.2.0.js"></script>
-        <script type="text/javascript" src="js/jquery.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript">app.initialize();</script>
+        <script src="cordova-2.2.0.js"></script>
+        <script src="js/jquery.js"></script>
+        <script src="js/index.js"></script>
+        <script>app.initialize();</script>
 
         
         <link rel="stylesheet" type="text/css" href="css/index.css" />
@@ -40,10 +40,11 @@
         
     </head>
     <body>
+        
+        
         <div class="app">
             
-            
-            <h1>Test 0.0.1</h1>
+            <img id="home-icon" src='icon.png'/>
             <h2>Cours Actuel : Exponentielle</h2>
             <iframe src="graph.html#e^x" class="current-chapter-iframe column_8"></iframe>
             <div class="current-chapter column_4" ref="exp"></div>
@@ -51,7 +52,7 @@
             
             <br>
             <br>
-           <h2 class="prev-chapters row">Cours Précédents </h2>
+           <h2 class="prev-chapters">Cours Précédents </h2>
             <h3 ref="int">Intégration </h3>
             <h3 ref="deriv">Dérivation </h3>
             

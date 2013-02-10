@@ -2753,7 +2753,7 @@ app.ui=(function(){
           ctx.line(overright, y);
           ctx.stroke();
       }
-        /*ctx.shadowColor = "rgba(255,255,255,1.0)";
+        /*ctx.shadowColor = "rgba(255,255,255,0)";
         ctx.shadowOffsetX = 0;
         ctx.shadowOffsetY = 0
         ctx.shadowBlur = 4;*/
@@ -3482,7 +3482,7 @@ app.ui=(function(){
     if(!app.config.fillText){
             app.config.fillText=ctx.fillText?true:false;
         }
-        canvas.style.background="#FFFFFA";
+        canvas.style.background="transparent";
     canvas.style.cursor = "default";
     canvas.style.position="fixed";
     
@@ -4532,7 +4532,13 @@ function hashDidChange(){
             app.ui.legend(!!data.legend);
         }
     } else {
-        app.add(decodeURIComponent((location.hash || location.search).substring(1)));
+          var arr = decodeURIComponent((location.hash || location.search).substring(1)).split('&');
+     var length = arr.length,
+    element = null;
+for (var i = 0; i < length; i++) {
+  element = arr[i];
+ app.add(element);
+    }
     }
 
 }
@@ -4593,7 +4599,6 @@ app.init=function (){
     app.ui.console.log(div,true);
     
     //app.ui.console.log("Example: Type d/dx (1/x)",true);
-    
 };
 if(!/noboot$/.test(location.search)){
     app.init();

@@ -29,10 +29,7 @@
         <script type="text/javascript" src="../../js/swipe.js"></script>
         <script type="text/javascript" src="../../js/jquery.js"></script>
         <script type="text/javascript" src="../../js/jsxgraph.js"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}}); </script>
-        <script type="text/javascript"src="../../js/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/javascript" src="../../js/index.js"></script>
-
         
         
         <link rel="stylesheet" type="text/css" href="../../css/index.css" />
@@ -46,19 +43,27 @@
         <div class="app">
 
             
-            <div id="navbar">
-            </div>
+            <div id="navbar"></div>
             
-            <h1>Exos 0.0.1</h1>
-            <div id="quick-look" class="column_13 row"></div>
-
-        <div class="calculation">
-            <h2> Calcul</h2>
-            <div class="row">
-            <div class="number">20</div>
-            <div class="number">22</div>
-            <div class="number">25</div>
-            </div>
+            <h1>Rédac</h1>
+        <div id="fiche-div">
+            
+            <script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}}); </script>
+            <script type="text/javascript"src="../../js/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+            <h5>Définition</h5>
+            
+            
+            $$ \displaystyle{\lim_{x\rightarrow + \infty}} e^x = + \infty
+            \quad \quad
+            \displaystyle{\lim_{x\rightarrow - \infty}} e^x = 0
+            \quad \quad
+            \displaystyle{\lim_{x\rightarrow + \infty}} \frac{e^x}{x} = + \infty$$
+            $$ (e^u)'(x)=u'(x)\times e^{u(x)} $$
+            $$ e^x = e^y \iff x=y$$
+            $$e^x \leqslant e^y \iff x \leqslant y$$
+            $$e^x < e^y \iff x < y $$
+            
+            <p>
             </div>
         
         </div>
@@ -66,6 +71,5 @@
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript">
         app.initialize();
-        </script>
     </body>
 </html>

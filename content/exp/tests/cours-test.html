@@ -46,7 +46,9 @@
         <div class="app ">
             
             
-            <div id="navbar"></div>
+            <div id="navbar">
+                <a href="../../index.html"><i class="icon-home icon-large"></i> Home</a><a href="exos.html"><i class="icon-pencil icon-large"></i> Exos</a><a href="#"><i class="icon-cogs icon-large"></i> Redac</a><a href="#"><i class="icon-dashboard icon-large"></i> Fiche</a>
+            </div>
             
             <h1>Cours 0.0.1</h1>
             <div id="quick-look" class="column_13 row"></div>
@@ -58,31 +60,32 @@
             </div>
             
             
-            <div class="right-container">
-                <h2>Introduction </h2>
+            <div class="row">
+                <h2 class="offset_6">Introduction </h2>
                 
-                <h3>Un première vue. </h3>
-                <p>
+                <h3 class="offset_6">Un première vue. </h3>
+                <p class='offset_6'>
                 Soit $f$ une fonction déﬁnie et dérivable sur \( \mathbb R \),vériﬁant \(f(0) = 1\) et pour tout \(x \in \mathbb R : f′(x) = f(x). \)
                 </p>
-                <p>1. Calculer une valeur approchée de \(f(−2), \; f(−1), \; f(1), \; f(2), \; f(3), \; f(4). \)</p>
+                <p class="offset_6">1. Calculer une valeur approchée de \(f(−2), \; f(−1), \; f(1), \; f(2), \; f(3), \; f(4). \)</p>
                 
                 
                 
-                <p class="pincher">
+                <p class="pincher offset_6">
                 On va alors construire une approximation de la courbe représentative de f sur l’intervalle [−3; 3] .
                 Pour cela on va utiliser la méthode d’Euler.
                 Pour cela on fait faire les mêmes calculs à un tableur, ici Excel, pour obtenir les courbes suivantes : Tout d’abord la feuille de calcul sous excel, puis la représentation graphique :
                 
                 </p>
-                <div class="pinched">
+                <div class="pinched offset_6">
                     <div class='swipe'>
                         <ul>
                             <li style='display:block'><div>On va alors construire une approximation de la courbe représentative de $f$ sur l’intervalle [−3; 3].</div></li>
                             <li style='display:none'><div>Pour cela on va utiliser la méthode d’Euler.</div></li>
                             <li style='display:none'><div>Pour cela on fait faire les mêmes calculs à un tableur, ici Excel, pour obtenir les courbes suivantes</div></li>
                             <li style='display:none'><div>Tout d’abord la feuille de calcul sous excel, puis la représentation graphique :</div></li>
-                            <li style='display:none'><div>+5</div></li>
+                            <li style='display:none'><div>+5
+                            </div></li>
                         </ul>
                     </div>
                 </div>
@@ -91,7 +94,7 @@
                 
                 <br>
                 <br>
-                <div id="box" class="jxgbox graph-side"></div>
+                <div id="box" class="jxgbox column_6 graph-margin-200 graph-side"></div>
                 <script type="text/javascript">
                     board1 = JXG.JSXGraph.initBoard('box', {boundingbox: [-6, 25, 6, -15], axis: true});
                     board1.suspendUpdate();
@@ -127,12 +130,14 @@
                     </script>
                 
                 <h3>Une seconde : un processus « sans mémoire » </h3>
-                On dit que la durée de vie de certains composants électroniques est sans vieillissement (ou encore sans mémoire) au sens suivant : Si $ f(t) $ est la probabilité que la durée de vie dépasse la durée t, alors pour tous  $t$ et $t′$ on a :
+                <div style="display:block">  On dit que la durée de vie de certains composants électroniques est sans vieillissement (ou encore sans mémoire) au sens suivant : Si $ f(t) $ est la probabilité que la durée de vie dépasse la durée t, alors pour tous  $t$ et $t′$ on a :
                     $$ f(t + t′) = f(t) × f(t′) $$ Tout cela sera bien expliqué au chapitre probabilité.
                     
                     Dans la suite on considère donc une fonction $ f $ dérivable sur $ \mathbb R $, non nulle, vérifiant pour tous $ x $ et $ y $:
                     $$ f(x + y) = f(x) × f(y) $$
                     
+                </div>
+                <div class="offset_6">
                     <h2>Définition de la fonction exponentielle </h2>
                     
                     <div class="cadre">
@@ -154,13 +159,16 @@
                             
                             </div>
                     
+                </div>
+                <div class='offset_6'>
                     <h2>Propriétés algébriques</h2>
                     <div class="cadre">
                         <h5> Définition </h5>
                         La fonction exponentielle transforme les sommes en produits :
                         Pour tout $a$ et $b$ de $\mathbb R$ : $\exp(a+b) = \exp(a) \times \exp(b)$. C’est à dire que pour tout $x$ de $\mathbb R$, $f(x) = \exp(x)$.
-                    </div>
+                    </div></div>
                 
+                <div class="offset_6">
                     <h2>Propriétés asymptotiques</h2>
                     
                     <div class="cadre">
@@ -170,7 +178,8 @@
                         \displaystyle{\lim_{x\rightarrow - \infty}} e^x = 0
                         \quad \quad
                         \displaystyle{\lim_{x\rightarrow + \infty}} \frac{e^x}{x} = + \infty $$
-                        </div>    
+                        
+                    </div>
                     
                     <h5>Preuve :</h5>
                     <br>
@@ -191,7 +200,7 @@
                             <ul>
                                 <li style='display:block'><div>On va alors construire une approximation de la courbe représentative de $f$ sur l’intervalle [−3; 3].</div></li>
                                 <li style='display:none'><div>Pour cela on va utiliser la méthode d’Euler.</div></li>
-                                
+                                </div></li>
                         </ul>
                     </div>
                 </div>
@@ -199,10 +208,10 @@
                 
                 
                 
-                <div style="display: inline ;">
+                <div class="column_5 offset_6" style="display: inline ;">
                     <br>
                     <br>
-                    <table class="var" style="margin:auto">
+                    <table class="var column_4" style="margin:auto">
                         
                         <tr>
                             <th>$x$</th>
@@ -221,18 +230,20 @@
                         
                     </table>
                 </div>
-                    
-                    <iframe class="graphtk graph-side" src="../../graph.html#e^x">
-                    </iframe>
                 
+                
+            </div>
+            <iframe class="graphtk graph-margin-600" src="../../graph.html#e^x">
+            </iframe>
             
+            <div class="offset_6">
                 <h2>Dérivation </h2>
                 
                 Démontrer que l’approximation affine de la fonction $\exp$ en $0$ est :
                 $$ \exp(x) \approx 1 + x$$
                 
                 <div class="cadre">
-                    <h5> Propriété</h5>
+                    <div class="caps"> Propriété</div>
                     Soit $u$ une fonction dérivable sur un intervalle $I$.<br>
                     La fonction composée $e^u$ est alors dérivable sur $I$ et :
                     
@@ -243,10 +254,75 @@
                 </div>
                 
             </div>
-            
-        </div>       
+            <div class="row">
+                <h2>Compléments </h2>
+                <div class='column_4'>
+                    <h3>Sur la croissance </h3>
+                    
+                    <h5>Propriétés</h5>
+                    Pour tous nombres réels $x$ et $y$ :
+                    
+                    $$ e^x = e^y \iff x=y$$
+                    $$e^x \leqslant e^y \iff x \leqslant y$$
+                    $$e^x < e^y \iff x < y $$
+                        
                         </div>
-           
+                        <div class='column_4'>
+                            
+                            <h3>Courbes de Gauss </h3>
+                            Étudier sur $\mathbb R$, et représenter graphiquement la fonction :
+                            $f_k : x \rightarrow e^{−kx^2} \quad (k>0).$
+                            On fera les représentations graphiques pour $k \in {0, 5 ; 1 ; 2 ; 3}$.
+                            
+                            <p>
+                            <iframe style="border : none; width : 44%; height : 200px" src="../../graph.html#e^(-x^2)"></iframe>
+                            <iframe style="border : none; width : 44%; height : 200px" src="../../graph.html#e^(-0.5x^2)"></iframe>
+                            <table style="width : 88%; text-align : center;">
+                                <tr>
+                                    <th>$k=1$</th>
+                                    <th>$\displaystyle k=\frac{1}{2}$</th>
+                                </tr>
+                                
+                            </table>
+                            <iframe style="border : none; width : 44%; height : 200px" src="../../graph.html#e^(-2x^2)"></iframe>
+                            <iframe style="border : none; width : 44%; height : 200px" src="../../graph.html#e^(-3x^2)"></iframe>
+                            <table style="width : 88%; text-align : center;">
+                                <tr>
+                                    <th>$k=2$</th>
+                                    <th>$k=3$</th>
+                                </tr>
+                                
+                            </table>
+                            
+                            
+                            </p>
+                        </div>
+                        <div class='column_4'>
+                            
+                            <h3>Croissances comparées </h3>
+                            <p>
+                            La fonction exponentielle n’est pas un polynôme (sa dérivée est égale à elle même, ce qui n’existe que pour le polynôme nul).
+                            
+                            
+                            
+                            On sait que $ \displaystyle \lim_{x \rightarrow + \infty} e^x= + \infty $ et $ \displaystyle \lim_{x \rightarrow + \infty}   x^n = + \infty $ si $n \geqslant 1$, mais entre ces deux fonctions, y-en a-t-il une qui croît beaucoup plus que l’autre ? C’est ce que l’on va chercher :
+                            On cherche à comparer les croissances de la fonction $\exp$ et des fonctions polynômes lorsqu’on rencontre une forme indéterminée.</p>
+                            <p>
+                            • en $ + \infty$ : 
+                            
+                            $$\lim_{x \rightarrow + \infty} \frac{x^n}{e^x}=0 \quad \text{et} \quad \lim_{x\rightarrow + \infty} \frac{e^x}{x^n}=+ \infty$$
+                            </p>
+                            <p>
+                            • en $−\infty$ :
+                            
+                            $$\lim_{x\rightarrow - \infty } x^n e^x=0 $$
+                            
+                            </p>
+                            
+                        </div>
+                        </div>
+            </div>
+        </div>
         
     </body>
 </html>
