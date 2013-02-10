@@ -1,5 +1,6 @@
 MathBookApp
 ===========
+http://jeremypatrickdahan.github.com/MathBookAppFramework/
 
 a PhoneGap based framework to create math class book apps
 
