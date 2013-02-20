@@ -1,6 +1,6 @@
-MathBookApp
+ChiselMathS
 ===========
-http://jeremypatrickdahan.github.com/MathBookAppFramework/
+http://jeremypatrickdahan.github.com/ChiselMathS/
 
 a PhoneGap based framework to create math class book apps
 
