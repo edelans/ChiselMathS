@@ -1,0 +1,38 @@
+<script>
+var rand = function(i){var e = Math.floor((Math.random()*i)+1); return e};
+var randSign = function(e){if(Math.floor(Math.random()*2)){return e} else{return e*(-1);}};
+var dispSign = function(e){if(e>0){return "+";} else{return "-";}};
+var polynomial = function(degree){
+    var poly = [];
+    for (var i=0;i<degree+1;i++){
+    poly[i] = randSign(rand(10));
+    }
+    return poly;
+}
+var displayPolynomial = function(poly){
+    var e = ' ';
+ jQuery.each(poly, function(degree,coef) {
+     if(degree==0){e += coef + " ";}
+     if(coef == 1){coef = '';}
+     if(degree==1){ if(coef>0 || coef==''){ e += "+ "}; e += coef + "x ";}
+     if(degree >= 2){ if(coef>0 || coef==''){ e += "+ "}; e += coef + "x^" + degree + " ";}
+                        });
+             return e
+};
+    
+    for (var k=0; k<5; k++){
+    $('#test').append("<div class='swipe'><ul><li style='display:block'><div></div></li><li style='display:none'><div></div></li></ul></div><br>");
+    var poly = polynomial(3);
+    var i = randSign(1);
+    var infty = dispSign(i) + '\\infty';
+    $('.swipe:last ul li:first div').append('Calculer la limite suivante : <br> $ \\displaystyle \\lim_{x \\rightarrow' +  infty + '}' + displayPolynomial(poly) + '$');
+    $('.swipe:last ul li:nth-child(2) div').append('Correction : <br> Le terme de plus haut degré est $' + poly[3] + 'x^3$. On cherche donc sa limite en $' + infty + '$, qui est $' + dispSign(i*poly[3]) + '\\infty$. Donc <br> $ \\displaystyle \\lim_{x \\rightarrow' +  infty + '}' + displayPolynomial(poly) + '=' + dispSign(i*poly[3]) + '\\infty $');
+    }
+    
+    MathJax.Hub.Queue(["Typeset",MathJax.Hub,"truc"]);
+    
+</script>
+
+<div id="test">
+    
+</div>

@@ -2633,7 +2633,7 @@ var default_messages={
 };
 
 app.config={
-    "lineWidth":1.5,
+    "lineWidth":2.5,
     "pt":true,
     "font":"12px sans-serif",
   "minorGridStyle":"#bbb",
@@ -2672,6 +2672,9 @@ app.ui=(function(){
       canvas.height= height;
       ctx && draw();
   }
+
+    
+    
   //Current Mouse coordinates
   var mx = 400;
   var my = 300;
@@ -2700,7 +2703,7 @@ app.ui=(function(){
   var cy = (window.innerHeight|| document.body.clientHeight || 120)*0.8;
   var cz = 10000;
 
-
+var tester = 1;
   function draw(){
         //they can be accidentially changed
       e = Math.E;
@@ -2709,6 +2712,7 @@ app.ui=(function(){
       if (!ctx) {
           return;
       }
+      
       ctx.lineCap = "butt";
         ctx.strokeStyle = ctx.fillStyle = "black";
       ctx.clearRect(0, 0, width, height);
@@ -2734,9 +2738,28 @@ app.ui=(function(){
 
       //Draw grid lines
   
-    
+      
+      
+      
+      // OOOOOOOOOOO
+      if(tester){
+      var ratio = window.devicePixelRatio || 1;
+      
+        var oldWidth = canvas.width;
+        var oldHeight = canvas.height;
+
+        canvas.width = oldWidth * ratio;
+        canvas.height = oldHeight * ratio;
+
+        canvas.style.width = oldWidth + 'px';
+        canvas.style.height = oldHeight + 'px';
+        ctx.scale(ratio,ratio);
+          tester=0;
+      }
+      
+      
         ctx.font=app.config.font;
-        
+    
       ctx.strokeStyle = app.config.minorGridStyle;
         ctx.fillStyle="#888";
       ctx.lineWidth = 0.1;
@@ -2869,21 +2892,16 @@ app.ui=(function(){
 
 
 
-
-
-
-
-
-
   var drawwhiledrag_c=0;
   function mousedown(e) {
         if(e.button != 0 || !allowdrag){return;}
       lmx=mx=e.x || e.pageX;
       lmy=my=e.y || e.pageY;
-      drag = true;
+      
+    drag = true;
       canvas.style.cursor = "url(grabbing.gif), grabbing";
       if (!drawwhiledrag_c) {
-          setTimeout(drawwhiledrag, 1000);
+          setTimeout(drawwhiledrag, 20);
           drawwhiledrag_c++;
       }
   };
@@ -2900,10 +2918,14 @@ app.ui=(function(){
       (cy-sy)/scaley=py
     
     */
+      
+      
+      
     var px=(mx+cx)/scalex;
     var py=(cy-my)/scaley;
     ptd.firstChild.nodeValue="("+px.toPrecision(6)+","+py.toPrecision(6)+")";
   }
+    
   function mousemove(e) {
         if(e.button != 0 || !allowdrag){return;}
       e = e || window.event;
@@ -2915,10 +2937,13 @@ app.ui=(function(){
           my = e.pageY;
       }
       if(drag){
-          _cx += mx - lmx;
-          _cy += my - lmy;
-      if(webkit){
+          if (Math.abs(mx-lmx)<40){_cx += (mx - lmx);}
+          if (Math.abs(my-lmy)<40){_cy += (my - lmy);}
+          if(webkit){
+              
+              
         canvas.style["-webkit-transform"]="translate("+_cx+"px,"+_cy+"px)";
+              
       }else{
         canvas.style.left = _cx + "px";
         canvas.style.top = _cy + "px";
@@ -2962,6 +2987,7 @@ app.ui=(function(){
 		*/
 		
 		updatePTD(mx,my);
+        
 	    draw();
 	
 		e.preventDefault();
@@ -2972,6 +2998,7 @@ app.ui=(function(){
 			return;
 		}
 		var s=e.touches[0];
+        
 		mousemove({x:s.screenX,y:s.screenY,button:0});
 		e.preventDefault();
 		return false;
@@ -2982,7 +3009,7 @@ app.ui=(function(){
 		}
 		drag=true;
 		if (!drawwhiledrag_c) {
-	        setTimeout(drawwhiledrag, 1000);
+	        setTimeout(drawwhiledrag, 20);
 	        drawwhiledrag_c++;
 	    }
 		
@@ -2995,8 +3022,8 @@ app.ui=(function(){
 			return;
 		}
 		drag=false;
-		perform_translation();
-		draw();
+//		perform_translation();
+//		draw();
 		e.preventDefault();
 		return false;
 	}
@@ -3087,14 +3114,12 @@ app.ui=(function(){
       if (drag) {
           perform_translation();
           draw();
+          //OOOOOOOOOOOOOOOOO
           setTimeout(drawwhiledrag, 1000);
       }else{
           drawwhiledrag_c--;
       }
   }
-
-
-
 
 
 
@@ -3431,6 +3456,8 @@ app.ui=(function(){
         draw();
 		},"redraw": function(){
 			draw();
+            
+            
     },"get_camera":function() {
         return [cx,cy,cz];
     },"set_camera":function(x,y,z){
@@ -3448,20 +3475,17 @@ app.ui=(function(){
     canvas=document.createElement("canvas");
         
         if(fullscreen){
-        
-        
-        
-      canvas.width=window.innerWidth;
-      canvas.height=window.innerHeight;
-
+      canvas.width=window.innerWidth*2;
+      canvas.height=window.innerHeight*2;
+            
     }
+
     document.body.appendChild(canvas);
     if(canvas.getContext){
         
         ctx=canvas.getContext("2d");
         
-        
-        
+     
         
     }else{
       if(!ctx && G_vmlCanvasManager){
@@ -3479,13 +3503,31 @@ app.ui=(function(){
                 return;
             }
     }
+        
+        
+        
+		 var ratio = window.devicePixelRatio || 1;
+      
+        var oldWidth = canvas.width;
+        var oldHeight = canvas.height;
+
+        canvas.width = oldWidth * ratio;
+        canvas.height = oldHeight * ratio;
+
+        canvas.style.width = oldWidth + 'px';
+        canvas.style.height = oldHeight + 'px';
+        ctx.scale(ratio,ratio);
+        
+        
+        
     if(!app.config.fillText){
             app.config.fillText=ctx.fillText?true:false;
         }
         canvas.style.background="transparent";
     canvas.style.cursor = "default";
     canvas.style.position="fixed";
-    
+
+        
     ptd=document.createElement("div");
         ptd.id="ptd";
     ptd.className="monospace";
@@ -3600,6 +3642,9 @@ app.ui=(function(){
         alink.title=app.ui.messages.help;
         app.ui.buttons.help = alink;
 
+       
+        
+        
         
         buttons.appendChild(alink);
         
@@ -3610,7 +3655,6 @@ app.ui=(function(){
 
 		$(canvas).bind("mousedown",mousedown);
 		// Touches
-		
 		//Bind events:
 		$(document.body).bind("mouseup",function(){if(!allowdrag){return;}drag=false;perform_translation();canvas.style.cursor = "default";draw()})
 						.bind("mousemove",mousemove)
@@ -3651,6 +3695,9 @@ app.ui=(function(){
       ctx.line=function(px,py,pz){
         return ctx.lineTo(scalex*px-cx,cy-scaley*py);
       };
+        
+        
+        
     }else{
       ctx.move=function(px,py,pz){
         if(isNaN(px) || isNaN(py)){
@@ -3787,6 +3834,7 @@ var usr={"eval":function(_____d){
 
 return usr;
 })();
+
 
 
 var graphs=[];
@@ -4314,6 +4362,7 @@ function compile(n){
     //Trigger all changes
     if(window && window.app && window.app.refresh){
         window.app.refresh(changed);
+        
     }
   return ret;
   
@@ -4598,6 +4647,8 @@ app.init=function (){
     div.appendChild(span);
     app.ui.console.log(div,true);
     
+            canvas.on("click" , function(){app.translate(-8,213,0);});
+
     //app.ui.console.log("Example: Type d/dx (1/x)",true);
 };
 if(!/noboot$/.test(location.search)){

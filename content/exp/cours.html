@@ -34,8 +34,10 @@
         <script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}}); </script>
         <script type="text/javascript" src="../../js/cordova-2.2.0.js"></script>
         <script type="text/javascript" src="../../js/index.js"></script>
-        <script type="text/javascript">app.initialize();</script>
         
+        <script type="text/javascript" src="../../js/ChemDoodleWeb.js"></script>
+        <script type="text/javascript" src="../../js/ChemDoodleWeb-libs.js"></script>
+        <script type="text/javascript">app.initialize();</script>
         
         
         <title>Hello World</title>
@@ -43,7 +45,7 @@
         
     </head>
     <body>
-        <div class="app ">
+        <div class="app mathjax">
             
             
             <div id="navbar"></div>
@@ -82,12 +84,14 @@
                             <li style='display:none'><div>Pour cela on va utiliser la méthode d’Euler.</div></li>
                             <li style='display:none'><div>Pour cela on fait faire les mêmes calculs à un tableur, ici Excel, pour obtenir les courbes suivantes</div></li>
                             <li style='display:none'><div>Tout d’abord la feuille de calcul sous excel, puis la représentation graphique :</div></li>
-                            <li style='display:none'><div>+5</div></li>
+                            <li style='display:none'><div> 
+                                              <iframe class="youtube-player" type="text/html" width="100" height="50" style="max-width:100%;" src="http://www.youtube.com/embed/ppBJWf_Wdmc?wmode=opaque&showinfo=0" frameborder="0"></iframe>
+                                    Video de Khan Academy
+                                </div></li>
                         </ul>
                     </div>
                 </div>
-                
-                
+                    <!--<video class="video-stream html5-main-video" controls="true" x-webkit-airplay="allow" data-youtube-id="ppBJWf_Wdmc" style="width: 200px; height: 50px; left: 0px; top: 0px; "></video> -->   
                 
                 <br>
                 <br>
@@ -151,7 +155,7 @@
                             <li>La fonction $\exp$ est dérivable sur $\mathbb R$, et $\forall x \in \mathbb R$ , $\exp ′(x) = \exp(x)$.</li>
                             <li>Son signe : $\forall x \in \mathbb R$, $\exp(x) > 0$.</li>
                             <li>Son sens de variation : la fonction exponentielle $\exp$ est strictement croissante sur $\mathbb R$.</li>
-                            
+                            </ol>
                             </div>
                     
                     <h2>Propriétés algébriques</h2>
@@ -243,7 +247,7 @@
                 </div>
                 
             </div>
-            
+           
         </div>       
                         </div>
            

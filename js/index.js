@@ -50,20 +50,8 @@ var app = {
 
 
 $(document).ready(function() {
-                  // Pinch-to-reveal
-                  $('.pincher').each(function() {
-                                     $(this).append('<i class="icon-pincher"></i>');
-                                     $(this).on("pinchOut", function(){
-                                                $(this).next('.pinched').addClass('pinched-active');});
-                                     $(this).on("doubleTap", function(){
-                                                $(this).next('.pinched').toggleClass('pinched-active');});
-                                     $(this).on("pinchIn", function(){
-                                                $(this).next('.pinched').removeClass('pinched-active');});
-                                     $(this).on("click", function(){
-                                                $(this).next('.pinched-active').removeClass('pinched-active');});
-                                     $(this).children('i').on("tap", function(){
-                                                $(this).parent('.pincher').next('.pinched').toggleClass('pinched-active');});
-                                     });
+    
+    
 
                   // Slider
                   
@@ -89,6 +77,22 @@ $(document).ready(function() {
                                    });}
                   sliderFunction();
                   
+                           // Pinch-to-reveal
+                  $('.pincher').each(function() {
+                                    $(this).next('.pinched').hide();
+                                     $(this).append('<i class="icon-pincher"></i>');
+                                     $(this).on("pinchOut", function(){
+                                                $(this).next('.pinched').slideDown('slow');});
+                                     $(this).on("doubleTap", function(){
+                                                $(this).next('.pinched').slideToggle('slow');});
+                                     $(this).on("pinchIn", function(){
+                                                $(this).next('.pinched').slideUp('slow');});
+                                     $(this).on("click", function(){
+                                                $(this).next('.pinched-active').slideUp('slow');});
+                                     $(this).children('i').on("tap", function(){
+                                                $(this).parent('.pincher').next('.pinched').slideToggle('slow');});
+                                     });
+       
 
                   // TOC generator and headlines numerator, Générateur de sommaire et numérotation des titres
                   i = 1;
@@ -164,12 +168,14 @@ $(document).ready(function() {
                                                                  $('#quick-look').slidedown("slow");}
                                                                  else{$('#quick-look').empty();}
                                                                  });
-                  
+    
                   var l=0;
                   $('.number').each(function(){
                                     $(this).on("click", function(){
+                                                 $('.number').removeClass('active-number');
                                                l++;
                                                if(l%2==1){
+                                            $(this).addClass('active-number');
                                                var number = $(this).text();
                                                var id =  number + '-exo-frame';
                                                $(this).parent('.row').after('<div class="exo-frame" id="' + id + '"></div>');
@@ -182,6 +188,7 @@ $(document).ready(function() {
                                                }
                                                if(l%2!=1){
                                                var div = $(this).parent('.row').next('.exo-frame');
+                                
                                                div.remove();}
                                                });
                                              });
@@ -233,8 +240,12 @@ $(document).ready(function() {
                   });
                                 
     
+               
+                $('.app.mathjax').before('<div id="loader"><i class="icon-spinner icon-4x icon-spin"></i></div>');
+                   MathJax.Hub.Queue( function() {$('.app').css('visibility', 'visible'); $('#loader').hide();});
+
     
-                                    
+                $('iframe html5-video-loader.html5-center-overlay.html5-loading-icon').hide();
     
                   });
 

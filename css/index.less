@@ -1,3 +1,7 @@
+/* Dahan Jeremy, ChiselMathS MIT licensed. */
+
+
+
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -346,15 +350,14 @@ width : 320px;
   z-index:1;
   -webkit-perspective: 1000;
   -webkit-backface-visibility: hidden;
-  background:#1db1ff;
-  color:#fff;
-}
-
-
-.swipe ul{
+  background: @blue2 ;
+  color:#fff; 
+ul{
 padding : 0;
 margin-left : -13px;
 }
+}
+.calculation .swipe{background : @orange}
 
 .pincher{
     display : inline-block;
@@ -377,14 +380,6 @@ transition: all 1s;
 -o-transition: all 1s; /* Opera */
 }
 
-.pinched{
-height : 0px;
-overflow : hidden;
-.transition;
-    &.pinched-active{
-    height : 86px;
-}}
-
 .triangle-up {
 	width: 0;
 	height: 0;
@@ -395,7 +390,7 @@ overflow : hidden;
 }
 
 .bullet-active{color : black}
-.slider-nav{text-align: center;}
+.slider-nav{text-align: center; margin-bottom : -15px}
 
 
 
@@ -578,6 +573,7 @@ background-color : #FFFFFA;
 #home-icon{
 margin: 0 40%;
 //	.home-blink
+    width : 100%;
 
 }
 
@@ -655,8 +651,11 @@ text-align : center;
 font-size : 23pt;
 color : #fff;
 display : inline-block;
-    margin : auto;
-margin : 30px}
+margin : 30px;
+ &.active-number{color : @orange;
+    background : white;
+    }
+}
 
 .calculation{
     background : @orange;
@@ -696,32 +695,53 @@ height : auto;
     .margin_bottom
 }
 
+.youtube-player{
+float : left;
+    margin : 10px;
+}
+
 /*/////////////////////////////////////////////////////////////  MCQ  ///////////////////////////////////////////////////////////////////////////*/
 
-.mcq{
-    label{
+    .mcq{
+        label{
         padding : 10px 10px 0 10px;
-width: 88%;
-display: inline-block;
-       border-bottom : 1px solid white;
-            &:last-child{border-bottom : 0 none;}
-    i{
-    position : relative;
-top: -20px;
-        text-align: right;
-opacity: 0;
-width: 100%;
+        width: 88%;
+        display: inline-block;
+        border-bottom : 1px solid white;
+                &:last-child{border-bottom : 0 none;}
+        &.checked, &.reveal{
+        background:rgba(255, 255, 255, 0.2);
+        &.validated{background:rgba(255, 0, 0, 0.65);}
+        &.correct.validated{
+        background:rgb(70, 208, 53)}
+            i{opacity : 1;}
+                }
+        
+
+        i{
+        position : relative;
+    top: -20px;
+            text-align: right;
+    opacity: 0;
+    width: 100%;
+        }
     }
-}
-    input:checked +label {
-    background:rgba(255, 255, 255, 0.2);
-    i{opacity : 1;}
-}
+
     input{display : none;}
 
 }
 
-
+#validate-button{
+    padding : 10px;
+    border : 3px solid white;
+    text-align : center;
+    margin : 10px 0;
+    background : @orange;
+    color : white;
+    width : 100px;
+    font-size : 14pt;
+    
+    }
 
 /*/////////////////////////////////////////////////////////////  JSXGraph  ///////////////////////////////////////////////////////////////////////////*/
 
@@ -870,7 +890,15 @@ margin: 0;
 
 
 
-
-
+.app.mathjax{visibility : hidden}
+#MathJax_Message{opacity : 0}
+#loader{font-size: 14pt;
+color: black;
+z-index: 1000000;
+height: 100px;
+position: fixed;
+top: 42%;
+left: 40%;
+}
 
 
