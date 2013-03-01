@@ -6,7 +6,7 @@ a PhoneGap based framework to create math class book apps
 
 Needs some cleaning up...
 
-The framework uses : [PhoneGap](http://phonegap.com/), [jQuery](http://jquery.com/), [Graph.tk](http://graph.tk), [Quo.js](http://quojs.tapquo.com/), [SwipeJS](http://swipejs.com), [Font-Awesome](fortawesome.github.com/Font-Awesome/), [MathJax](mathjax.org), [JSXGraph](jsxgraph.uni-bayreuth.de), [tuktuk](tuktuk.tapquo.com), [LESS](lescss.org), [Javascript-Cas](https://github.com/aantthony/javascript-cas), [HandleBarsJS](http://handlebarsjs.com/)  (for now)
+The framework uses : [PhoneGap](http://phonegap.com/), [jQuery](http://jquery.com/), [Graph.tk](http://graph.tk), [Quo.js](http://quojs.tapquo.com/), [SwipeJS](http://swipejs.com), [Font-Awesome](http;//fortawesome.github.com/Font-Awesome/), [MathJax](http://mathjax.org), [JSXGraph](http://jsxgraph.uni-bayreuth.de), [tuktuk](http://tuktuk.tapquo.com), [LESS](http://lescss.org), [Javascript-Cas](https://github.com/aantthony/javascript-cas), [HandleBarsJS](http://handlebarsjs.com/)  (for now)
 
 # Beginning of the API : 
 
